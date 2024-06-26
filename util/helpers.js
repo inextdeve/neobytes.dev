@@ -1,5 +1,5 @@
 const loader = ({ src }) => {
-  // Define your custom loader here
+  // Define your custom loader
   return `http://38.60.249.19:1337${src}`;
 };
 
