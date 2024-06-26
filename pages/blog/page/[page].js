@@ -7,16 +7,13 @@ import { cmsServer } from "../../../config/server";
 
 export async function getStaticPaths() {
   // Adding nonExistField in request just for return empty object for counting pagination
-  const response = await fetch(
-    `${cmsServer}/api/posts?fields[0]=noneExistField`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
-      },
-    }
-  );
+  const response = await fetch(`${cmsServer}/api/posts`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
+    },
+  });
 
   const articles = await response.json();
 
@@ -67,7 +64,7 @@ const Blog = ({ articles, page }) => {
   return (
     <>
       <Head
-        title="iNext | Blog For Web Designers And Developers"
+        title="Neobytes | Blog For Web Designers And Developers"
         description="Articles all around Nextjs, ReactJs, CSS, JavaScript, front-end, UX and design. For designers and web developers."
         canonical="/blog/"
       />
