@@ -20,16 +20,13 @@ const Pagination = ({ current }) => {
     void (async function () {
       // const countPages = Math.ceil((await countDocs()) / 5); // 5 Posts Per Page
 
-      const response = await fetch(
-        `${cmsServer}/api/posts?fields[0]=createdAt`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
-          },
-        }
-      );
+      const response = await fetch(`${cmsServer}/api/posts`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
+        },
+      });
 
       const articles = await response.json();
       const countPages = Math.ceil(articles.meta.pagination.total / 5); // 5 Posts Per Page
