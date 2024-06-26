@@ -1,0 +1,86 @@
+.contactUs {
+  background: var(--color-white);
+  padding: 2rem;
+  border-radius: 40px;
+  max-width: 768px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+.contactItems {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-white);
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+.icon {
+  font-size: 2rem;
+}
+.whatsapp {
+  background: rgb(37 211 102);
+  box-shadow: rgb(37 211 102) 0px 2px 8px 0px;
+}
+.email {
+  background: rgb(109 73 255);
+  box-shadow: rgb(109 73 255) 0px 2px 8px 0px;
+}
+.location {
+  background: rgb(241 101 101);
+  box-shadow: rgb(241 101 101) 0px 2px 8px 0px;
+}
+.form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "name name"
+    "email email"
+    "subject subject"
+    "message message"
+    "submit submit";
+  gap: 1rem;
+}
+.inp_email {
+  grid-area: email;
+}
+.inp_name {
+  grid-area: name;
+}
+.inp_subject {
+  grid-area: subject;
+}
+.inp_message {
+  grid-area: message;
+}
+.sendButton {
+  grid-area: submit;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: var(--font-family-1);
+  width: 200px;
+  margin: 0 auto;
+}
+.anchor {
+  color: var(--color-white);
+}
+@media (min-width: 768px) {
+  .form {
+    grid-template-areas:
+      "name email"
+      "subject subject"
+      "message message"
+      "submit submit";
+  }
+}
+
+@media (min-width: 992px) {
+  .contactItems {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

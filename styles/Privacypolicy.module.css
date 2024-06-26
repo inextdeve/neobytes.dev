@@ -1,0 +1,13 @@
+.title {
+    font-size: 4rem;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+.smallTitle {
+    color: var(--color-black);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    margin-top: 4rem;
+    padding: 0.1rem;
+}

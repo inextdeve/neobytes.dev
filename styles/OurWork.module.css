@@ -1,0 +1,55 @@
+.workDesc {
+  color: var(--color-dark-gray);
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-align: center;
+}
+.longDesc {
+  color: var(--color-dark-gray);
+  font-size: 1.5rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+.video {
+  display: flex;
+  justify-content: center;
+  margin-top: 8rem;
+  z-index: 1;
+  position: relative;
+}
+.videoFrame {
+  border-radius: 1.2rem;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  width: 100%;
+}
+.moreProjects {
+  display: grid;
+  gap: 1.2rem;
+  margin: 3rem 0;
+}
+
+.moreProjectsHeading {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 3rem;
+}
+.previewButton {
+  margin: 2rem 0;
+}
+@media (min-width: 576px) {
+  .moreProjects {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .moreProjects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .longDesc {
+    margin-top: 10rem;
+  }
+}

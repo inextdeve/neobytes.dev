@@ -1,0 +1,58 @@
+.card {
+  border-radius: 2rem;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: var(--transition);
+}
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 12px -1px;
+  cursor: pointer;
+}
+.cardBody {
+  padding: 3rem;
+  background: var(--color-white);
+  height: 100%;
+}
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+}
+.cardLangicons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.cardDesc {
+  font-size: 0.9rem;
+}
+.imageContainer {
+  min-height: 280px;
+}
+/* For second body card that will apear when hover */
+.slideUpCardBody {
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  width: 100%;
+}
+.card:hover .slideUpCardBody {
+  transform: translateY(0);
+  opacity: 1 !important;
+}
+.card:hover .cardBody {
+  opacity: 0;
+}
+.transition {
+  transition: transform 0.6s, opacity 0.4s;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}

@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Source+Code+Pro&display=swap");
+:root {
+  --font-family-1: "Montserrat", sans-serif;
+  --font-family-2: "Source Code Pro", monospace;
+  --color-gray: rgb(91 100 120);
+  --color-dark-gray: rgb(91 100 120);
+  --color-black: rgb(31 36 40/1);
+  --color-blue: rgb(33 144 255/1);
+  --color-white: white;
+  --transition: all 250ms ease-in-out;
+  --bg-gradient: linear-gradient(90deg, #4ca5ff 2.34%, #b673f8 100.78%);
+  --fs-100: 0.75rem;
+  --fs-200: 1rem;
+  --fs-300: 1.75rem;
+  --fs-400: 2rem;
+  --fs-500: 2.75rem;
+  --fs-600: 3rem;
+  --fs-700: 3.5rem;
+  --fs-800: 3.75rem;
+  --fs-900: 4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  padding-top: 80px;
+}
+body {
+  font-family: var(--font-family-1);
+  background-color: rgb(245 249 255 / 1);
+}
+a {
+  text-decoration: none;
+  color: var(--color-black);
+}
+button {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+ul {
+  list-style: none;
+}
+section,
+footer {
+  padding: 4rem 0;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.container-md {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.container-lg {
+  max-width: 956px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.text-gradient {
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.orange_text-gradient {
+  background: linear-gradient(90deg, #ff7170 2.34%, #ffe57f 100.78%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-hover:hover {
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+}
+.bg-gradient {
+  background: var(--bg-gradient);
+}
+.orange-bg-gradient {
+  background: linear-gradient(90deg, #ff7170 2.34%, #ffe57f 100.78%);
+}
+
+.btn-primary {
+  background-color: var(--color-blue);
+  border-radius: 4rem;
+  font-weight: 700;
+  padding: 10px 22px;
+  color: var(--color-white);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: var(--font-family-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.order-now-btn {
+  background-color: #25d366;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+.order-now-btn .order-icon {
+  font-size: 1.1rem;
+}
+.section-heading {
+  font-size: var(--fs-400);
+  margin: 1rem 0;
+  text-align: center;
+  margin-bottom: 2.3rem;
+  color: var(--color-black);
+}
+.inext-text {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-gray);
+  /*  UPDATE */
+
+  margin: 0 auto;
+  line-height: 1.8rem;
+}
+.section-desc {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+/* Helper Classes */
+.pos-relative {
+  position: relative !important;
+}
+.pos-absolute {
+  position: absolute !important;
+}
+.lowercase {
+  text-transform: lowercase !important;
+}
+.uppercase {
+  text-transform: uppercase !important;
+}
+.t-left {
+  text-align: left !important;
+}
+.transition {
+  transition: var(--transition);
+}
+.d-flex {
+  display: flex;
+}
+.center-x-flex {
+  justify-content: center;
+}
+.g-1 {
+  gap: 1rem;
+}
+.py-2 {
+  padding: 0 1rem;
+}
+.d-block {
+  display: block;
+}
+
+/* Look Professional With iNext */
+@media (min-width: 576px) {
+  .section-heading {
+    --fs-400: 3.5rem;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .section-desc {
+    width: 80%;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    width: 1400px;
+  }
+}

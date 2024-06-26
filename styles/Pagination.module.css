@@ -1,0 +1,23 @@
+/* PAGINATION */
+.paginationButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.pageButton {
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.activePage,
+.pageButton:hover {
+  background: var(--bg-gradient);
+  border-color: transparent;
+  color: var(--color-white);
+}

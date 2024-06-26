@@ -1,0 +1,26 @@
+.servicesTitle {
+  color: var(--color-gray);
+  font-size: 1.9rem;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+}
+.serviceLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.icon {
+  font-size: 1.7rem;
+  display: flex;
+  justify-items: center;
+}
+.heading {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}

@@ -1,0 +1,34 @@
+.heading {
+  margin-bottom: 0.5rem;
+}
+.quote {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 4rem;
+  text-transform: capitalize;
+}
+
+.links {
+  display: grid;
+  gap: 1rem;
+}
+.link {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.6rem;
+  background: #e4f0fd;
+}
+.liGradientBorder {
+  background: var(--bg-gradient);
+  padding: 1px;
+  border-radius: 0.65rem;
+  transition: var(--transition);
+}
+.liGradientBorder:hover {
+  transform: scale(1.01);
+}

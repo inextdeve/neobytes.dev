@@ -1,0 +1,144 @@
+.services {
+  display: grid;
+  gap: 1rem;
+}
+.introText {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 2.3rem;
+}
+.heading {
+  margin-bottom: 1rem;
+}
+/* Service Page [slug] */
+.subtitle {
+  font-weight: 600;
+  text-align: center;
+}
+.summary {
+  text-align: center;
+  line-height: 1.6rem;
+  font-size: 1.3rem;
+  color: var(--color-gray);
+  font-weight: 400;
+}
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.imageContainer {
+  aspect-ratio: 16/9;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.descAndFeat {
+  display: grid;
+  gap: 1rem;
+  overflow-x: hidden;
+}
+.features {
+  display: grid;
+  gap: 1rem;
+}
+.descAndFeat {
+  margin-top: 3rem;
+}
+.descriptionHeading {
+  text-align: left;
+}
+.descriptionHeading::before {
+  content: "";
+  display: block;
+  border-radius: 4rem;
+  width: 15%;
+  background: var(--bg-gradient);
+  top: -9px;
+  left: 0;
+  height: 9px;
+  position: absolute;
+}
+.description {
+  max-width: 700px;
+  color: var(--color-gray);
+}
+.description li {
+  margin: 0.9rem 0;
+}
+.description strong {
+  font-weight: 600;
+}
+.offer {
+  margin-top: 2rem;
+  color: var(--color-gray);
+}
+.moreServices {
+  display: grid;
+  gap: 1.2rem;
+  margin: 3rem 0;
+}
+.moreServicesHeading {
+  margin-top: 4rem;
+  text-align: center;
+  font-size: 3rem;
+}
+.moreServicesContent {
+  display: grid;
+  gap: 1rem;
+}
+.orderNowBigBTN {
+  width: 80%;
+  margin: 2rem auto 0 auto;
+}
+.offer h4 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-black);
+}
+.offer h3 {
+  text-align: center;
+  font-size: 22px;
+}
+.offer ul li {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+@media (min-width: 576px) {
+  .features {
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+  }
+  .moreServicesContent {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 768px) {
+  .services {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 992px) {
+  .services {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .descAndFeat {
+    grid-template-columns: 1.6fr 1fr;
+  }
+  /* Margin first feature card */
+  .stBen {
+    margin-top: 2rem;
+  }
+  .description {
+    margin-top: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .descAndFeat {
+    margin-top: 10rem;
+  }
+  .moreServicesContent {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

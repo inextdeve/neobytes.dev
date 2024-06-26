@@ -1,0 +1,25 @@
+.title {
+  color: white;
+  text-align: center;
+  padding: 4rem 0;
+  border-radius: 1.5rem;
+  margin: 2rem 0;
+}
+.searchForm {
+  display: flex;
+  gap: 0.5rem;
+}
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.bgGradient {
+  background: var(--bg-gradient);
+}
+.tag:not(.bgGradient) {
+  background-color: transparent !important;
+  color: var(--color-black);
+}

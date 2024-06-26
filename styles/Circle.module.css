@@ -1,0 +1,39 @@
+.circleContainer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2%;
+  width: 95%;
+  aspect-ratio: 1/1;
+  z-index: -3;
+  overflow: hidden;
+  padding: 15px;
+}
+.circle {
+  animation: spin1 25s linear infinite;
+}
+@keyframes spin1 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(1turn);
+    transform: rotate(1turn);
+  }
+}
+@media (min-width: 576px) {
+  .circleContainer {
+    top: -9%;
+  }
+}
+@media (min-width: 768px) {
+  .circleContainer {
+    top: -15%;
+  }
+}
+@media (min-width: 1200px) {
+  .circleContainer {
+    top: -20%;
+  }
+}

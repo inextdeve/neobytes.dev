@@ -1,0 +1,46 @@
+.articleCard {
+  display: block;
+  border: 1px solid #eee;
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+.articleImage {
+  min-height: 200px;
+}
+.articleContent {
+  padding: 0.8rem;
+}
+.articleTitle {
+  font-weight: 400;
+  margin-bottom: 0.7rem;
+}
+.articleResume {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  font-weight: 400;
+  color: var(--color-black);
+  margin-bottom: 0.7rem;
+}
+.articleDate {
+  color: #6c757d !important;
+  font-size: 0.8rem;
+  word-spacing: 2px;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+.articleLink {
+  text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+  .articleCard {
+    display: flex;
+    gap: 1rem;
+  }
+  .articleImage {
+    min-width: 32%;
+    min-height: auto;
+  }
+}
