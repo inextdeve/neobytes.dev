@@ -171,8 +171,8 @@ const Home = ({ projects, countProjects }) => {
               <Image
                 src="/intro-bg.png"
                 alt="hero_bg"
-                width="2500"
-                height="1666.5"
+                width={2500}
+                height={1666.5}
                 layout="intrinsic"
               />
             </div>
