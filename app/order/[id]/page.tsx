@@ -6,7 +6,7 @@ const Page = () => {
           <div className="mx-auto w-full max-w-lg">
             <h1 className="relative text-2xl font-medium text-gray-700 sm:text-3xl">
               Secure Checkout
-              <span className="mt-2 block h-1 w-10 bg-teal-600 sm:w-20"></span>
+              <span className="mt-2 block h-1 w-10 bg-gradient sm:w-20"></span>
             </h1>
             <form action="" className="mt-10 flex flex-col space-y-4">
               <div>
@@ -21,22 +21,19 @@ const Page = () => {
                   id="email"
                   name="email"
                   placeholder="*Optional"
-                  className="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-teal-500"
+                  className="mt-1 block w-full rounded border-gray-300 bg-gray-50 py-3 px-4 text-sm placeholder-gray-300 shadow-sm outline-none transition focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </form>
             <p className="mt-10 text-center text-sm font-semibold text-gray-500">
               By placing this order you agree to the{" "}
-              <a
-                href="#"
-                className="whitespace-nowrap text-teal-400 underline hover:text-teal-600"
-              >
+              <a href="#" className="whitespace-nowrap text-gradient underline">
                 Terms and Conditions
               </a>
             </p>
             <button
               type="submit"
-              className="mt-4 inline-flex w-full items-center justify-center rounded bg-teal-600 py-2.5 px-4 text-base font-semibold tracking-wide text-white text-opacity-80 outline-none ring-offset-2 transition hover:text-opacity-100 focus:ring-2 focus:ring-teal-500 sm:text-lg"
+              className="mt-4 inline-flex w-full items-center justify-center rounded py-2.5 px-4 text-base font-semibold tracking-wide text-white text-opacity-80 outline-none ring-offset-2 transition hover:text-opacity-100 focus:ring-2 focus:ring-teal-500 sm:text-lg bg-gradient"
             >
               Place Order
             </button>
@@ -46,18 +43,18 @@ const Page = () => {
           <h2 className="sr-only">Order summary</h2>
           <div>
             <img
-              src="https://images.unsplash.com/photo-1581318694548-0fb6e47fe59b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+              src="https://neobytes.network/wp-content/uploads/2023/12/work.png"
               alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />
-            <div className="absolute inset-0 h-full w-full bg-gradient-to-t from-teal-800 to-teal-400 opacity-95"></div>
+            <div className="absolute inset-0 h-full w-full bg-gradient from-teal-800 to-teal-400 opacity-95"></div>
           </div>
           <div className="relative">
             <ul className="space-y-5">
               <li className="flex justify-between">
                 <div className="inline-flex">
                   <img
-                    src="https://images.unsplash.com/photo-1621607512214-68297480165e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjV8fGhhaXIlMjBkcnllcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60"
+                    src="https://neobytes.network/wp-content/uploads/2023/12/work.png"
                     alt=""
                     className="max-h-16"
                   />
