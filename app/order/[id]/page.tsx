@@ -1,3 +1,5 @@
+import PaypalButton from "../../../components/paypal-button";
+
 const Page = () => {
   return (
     <div className="relative mx-auto w-full bg-white">
@@ -25,18 +27,19 @@ const Page = () => {
                 />
               </div>
             </form>
-            <p className="mt-10 text-center text-sm font-semibold text-gray-500">
+            <p className="my-10 text-center text-sm font-semibold text-gray-500">
               By placing this order you agree to the{" "}
               <a href="#" className="whitespace-nowrap text-gradient underline">
                 Terms and Conditions
               </a>
             </p>
-            <button
+            {/* <button
               type="submit"
               className="mt-4 inline-flex w-full items-center justify-center rounded py-2.5 px-4 text-base font-semibold tracking-wide text-white text-opacity-80 outline-none ring-offset-2 transition hover:text-opacity-100 focus:ring-2 focus:ring-teal-500 sm:text-lg bg-gradient"
             >
               Place Order
-            </button>
+            </button> */}
+            <PaypalButton />
           </div>
         </div>
         <div className="relative col-span-full flex flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-4 lg:py-24">
