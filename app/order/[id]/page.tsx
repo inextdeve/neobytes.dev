@@ -1,6 +1,85 @@
+import Cart from "../../../components/cart";
+import PaidOrder from "../../../components/paid-order";
 import PaypalButton from "../../../components/paypal-button";
+import { Order } from "../../../types";
 
-const Page = () => {
+const orders: Order[] = [
+  {
+    id: "1",
+    products: [
+      {
+        name: "eCommerce website",
+        image: "https://neobytes.network/wp-content/uploads/2023/12/work.png",
+        description: "One product eCommerce website",
+        price: "2000.00",
+        currency: "USD",
+      },
+      {
+        name: "Event management site",
+        image: "https://neobytes.network/wp-content/uploads/2023/12/work.png",
+        description: "Platform for event planning and ticketing",
+        price: "4000.00",
+        currency: "USD",
+      },
+    ],
+    paid: false,
+    orderStatus: "PENDING",
+  },
+  {
+    id: "2",
+    products: [
+      {
+        name: "Real estate website",
+        image: "https://neobytes.network/wp-content/uploads/2023/12/work.png",
+        description: "Property listing and management system",
+        price: "5500.00",
+        currency: "USD",
+      },
+      {
+        name: "News portal",
+        image: "https://neobytes.network/wp-content/uploads/2023/12/work.png",
+        description: "News and article publishing platform",
+        price: "4500.00",
+        currency: "USD",
+      },
+    ],
+    paid: true,
+    payment: {
+      date: new Date("14 May 2024"),
+      method: "PayPal",
+      name: "Jhon Smith",
+    },
+    orderStatus: "PROCESSING",
+  },
+];
+
+export async function generateStaticParams() {
+  // const posts = await fetch('https://.../posts').then((res) => res.json())
+
+  return orders.map((order) => ({
+    id: order.id,
+  }));
+}
+
+async function getOrder(id: string) {
+  // const res = await fetch('https://api.example.com/...')
+  // // The return value is *not* serialized
+  // // You can return Date, Map, Set, etc.
+
+  // if (!res.ok) {
+  //   // This will activate the closest `error.js` Error Boundary
+  //   throw new Error('Failed to fetch data')
+  // }
+
+  // return res.json()
+  return orders[Number(id) - 1];
+}
+
+const Page = async ({ params }: { params: { id: string } }) => {
+  const order = await getOrder(params.id);
+  if (order.paid) {
+    return <PaidOrder order={order} />;
+  }
   return (
     <div className="relative mx-auto w-full bg-white">
       <div className="grid min-h-screen grid-cols-10">
@@ -53,37 +132,7 @@ const Page = () => {
             <div className="absolute inset-0 h-full w-full bg-gradient from-teal-800 to-teal-400 opacity-95"></div>
           </div>
           <div className="relative">
-            <ul className="space-y-5">
-              <li className="flex justify-between">
-                <div className="inline-flex">
-                  <img
-                    src="https://neobytes.network/wp-content/uploads/2023/12/work.png"
-                    alt=""
-                    className="max-h-16"
-                  />
-                  <div className="ml-3">
-                    <p className="text-base font-semibold text-white">
-                      eCommerce Website
-                    </p>
-                    <p className="text-sm font-medium text-white text-opacity-80">
-                      One product eCommerce website
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm font-semibold text-white">$4000.00</p>
-              </li>
-            </ul>
-            <div className="my-5 h-0.5 w-full bg-white bg-opacity-30"></div>
-            <div className="space-y-2">
-              <p className="flex justify-between text-lg font-bold text-white">
-                <span>Total price:</span>
-                <span>$4200.00</span>
-              </p>
-              <p className="flex justify-between text-sm font-medium text-white">
-                <span>Vat: 10%</span>
-                <span>$55.00</span>
-              </p>
-            </div>
+            <Cart order={order} />
           </div>
           <div className="relative mt-10 text-white">
             <h3 className="mb-5 text-lg font-bold">Support</h3>
@@ -112,5 +161,5 @@ const Page = () => {
     </div>
   );
 };
-
+export const dynamicParams = false;
 export default Page;
