@@ -2,7 +2,7 @@ import Cart from "../../../components/cart";
 import PaidOrder from "../../../components/paid-order";
 import PaypalButton from "../../../components/paypal-button";
 import { Order } from "../../../types";
-
+import { cmsServer } from "../../../config/server";
 const orders: Order[] = [
   {
     id: "1",
@@ -24,6 +24,7 @@ const orders: Order[] = [
     ],
     paid: false,
     orderStatus: "PENDING",
+    payerInfo: null,
   },
   {
     id: "2",
@@ -44,40 +45,67 @@ const orders: Order[] = [
       },
     ],
     paid: true,
-    payment: {
-      date: new Date("14 May 2024"),
-      method: "PayPal",
-      name: "Jhon Smith",
-    },
     orderStatus: "PROCESSING",
+    payerInfo: null,
   },
 ];
 
 export async function generateStaticParams() {
-  // const posts = await fetch('https://.../posts').then((res) => res.json())
+  // Adding nonExistField in request just for return empty object for counting pagination
+  const response = await fetch(`${cmsServer}/api/orders`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
+    },
+  });
 
-  return orders.map((order) => ({
-    id: order.id,
+  const orders = await response.json();
+  console.log(
+    "Orders",
+    orders.data.map((order) => ({
+      id: order.id,
+    }))
+  );
+  return orders.data.map((order) => ({
+    id: `${order.id}`,
   }));
 }
 
+// export async function generateStaticParams() {
+//   // const posts = await fetch('https://.../posts').then((res) => res.json())
+
+//   return orders.map((order) => ({
+//     id: order.id,
+//   }));
+// }
+
 async function getOrder(id: string) {
-  // const res = await fetch('https://api.example.com/...')
-  // // The return value is *not* serialized
-  // // You can return Date, Map, Set, etc.
+  const response = await fetch(
+    `${cmsServer}/api/orders/${id}?populate[products][populate][0]=image`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPICMS_TOKEN}`,
+      },
+    }
+  );
 
-  // if (!res.ok) {
-  //   // This will activate the closest `error.js` Error Boundary
-  //   throw new Error('Failed to fetch data')
-  // }
+  const order = await response.json();
+  console.log("ORDER ORDER", order.data.attributes.products.data);
 
-  // return res.json()
-  return orders[Number(id) - 1];
+  return { id: order.data.id, ...order.data.attributes };
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
   const order = await getOrder(params.id);
-  if (order.paid) {
+  order.products = order.products.data.map((product) => {
+    product.attributes.image = `${cmsServer}${product.attributes.image.data.attributes.url}`;
+    return product.attributes;
+  });
+  console.log("Image test", order.products[0].image);
+  if (order && order.paid) {
     return <PaidOrder order={order} />;
   }
   return (
@@ -118,7 +146,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
             >
               Place Order
             </button> */}
-            <PaypalButton />
+            <PaypalButton id={params.id} />
           </div>
         </div>
         <div className="relative col-span-full flex flex-col py-6 pl-8 pr-4 sm:py-12 lg:col-span-4 lg:py-24">

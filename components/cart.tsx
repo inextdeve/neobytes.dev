@@ -8,7 +8,11 @@ const Cart = ({ order }: { order: Order }) => {
           return (
             <li className="flex justify-between">
               <div className="inline-flex">
-                <img src={product.image} alt="" className="max-h-16" />
+                <img
+                  src={product.image}
+                  alt=""
+                  className="h-14 object-cover w-14"
+                />
                 <div className="ml-3">
                   <p className="text-base font-semibold text-white">
                     {product.name}

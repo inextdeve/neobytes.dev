@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { Order } from "../types";
+import moment from "moment";
 
 const orderStatus = {
   PROCESSING:
     "is processing by our team. We will notify you by email once your order has been completed.",
-  END: "is completed by our team. Thank you for your trust in us.",
+  END: "is completed by our team. Thank you for your trust in us. this page will removed in 24hr.",
 };
 
 const PaidOrder = ({ order }: { order: Order }) => {
-  if (order.payment)
+  if (order.payerInfo)
     return (
       <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-16 min-h-[90vh]">
         <div className="mx-auto max-w-2xl px-4 2xl:px-0">
@@ -31,7 +32,7 @@ const PaidOrder = ({ order }: { order: Order }) => {
                 Date
               </dt>
               <dd className="font-medium text-gray-900 dark:text-white sm:text-end">
-                {order.payment.date.toLocaleString()}
+                {moment(order.updatedAt).format("DD-MM-YYYY")}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -39,7 +40,8 @@ const PaidOrder = ({ order }: { order: Order }) => {
                 Payment Method
               </dt>
               <dd className="font-medium text-gray-900 dark:text-white sm:text-end">
-                {order.payment.method}
+                {Object.keys(order.payerInfo.payment_source)[0].toUpperCase() ||
+                  ""}
               </dd>
             </dl>
             <dl className="sm:flex items-center justify-between gap-4">
@@ -47,7 +49,7 @@ const PaidOrder = ({ order }: { order: Order }) => {
                 Name
               </dt>
               <dd className="font-medium text-gray-900 dark:text-white sm:text-end">
-                {order.payment.name}
+                {`${order.payerInfo.payer.name.given_name} ${order.payerInfo.payer.name.surname}`}
               </dd>
             </dl>
           </div>

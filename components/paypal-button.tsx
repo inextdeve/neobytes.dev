@@ -5,6 +5,9 @@ import {
   PayPalScriptProvider,
   ReactPayPalScriptOptions,
 } from "@paypal/react-paypal-js";
+import { confirmOrderPayment } from "../util/helpers";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface OrderData {
   id: string;
@@ -15,7 +18,8 @@ interface OrderData {
   debug_id?: string;
 }
 
-export default function PaypalButton() {
+export default function PaypalButton({ id }: { id: string | number }) {
+  const router = useRouter();
   const initialOptions: ReactPayPalScriptOptions = {
     clientId: process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID as string,
     intent: "capture",
@@ -28,7 +32,7 @@ export default function PaypalButton() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          cart: [{ id: "YOUR_PRODUCT_ID", quantity: "YOUR_PRODUCT_QUANTITY" }],
+          orderId: id,
         }),
       });
 
@@ -96,6 +100,19 @@ export default function PaypalButton() {
           orderData,
           JSON.stringify(orderData, null, 2)
         );
+        const confirmPayment = await confirmOrderPayment(id, orderData);
+
+        toast.success("Your payment has been successful.", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        setTimeout(() => router.refresh(), 5000);
       }
     } catch (error) {
       console.error(error);

@@ -10,12 +10,8 @@ export type Order = {
   id: string;
   products: Product[];
   paid: boolean;
-  payment?: {
-    date: Date;
-    name: string;
-    method: "Card" | "PayPal";
-  };
   orderStatus: "PROCESSING" | "PENDING" | "END";
+  payerInfo: null | string;
 };
 
 export type Orders = Order[];
